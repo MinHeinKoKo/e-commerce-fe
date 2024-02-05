@@ -3,7 +3,7 @@ import {  useEffect } from "react"
 import { Outlet } from "react-router-dom"
 import { useDispatch } from "react-redux";
 import { useMostSellItemsQuery } from "../services/productApi"
-import { setMostSells } from "../store/features/product";
+import { setCatgory, setMostSells } from "../store/features/product";
 import { Navbar } from "../components/main/Navbar";
 import Breadcrumb from "../components/BreadCrumb";
 import Footer from "../components/main/Footer";
@@ -14,7 +14,8 @@ const GuestLayout = () => {
   const dispatch = useDispatch();
 
   useEffect(()=> {
-    dispatch(setMostSells(data))
+    dispatch(setMostSells(data?.data))
+    console.log(data?.data)
   }, [ms])
   
   return (
