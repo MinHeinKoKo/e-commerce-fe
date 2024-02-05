@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary : "#1565D8",
+        primary: "#ffd803",
+        textColor: "#272343",
+        // primary : "#1565D8",
         stroke: "#0e172c",
         dark: {
           light : "#5A7184",
@@ -17,7 +19,8 @@ module.exports = {
       },
       fontFamily: {
         Opensans : ['Open Sans', "sans-serif"],
-        montserrat : ['Montserrat', "sans-serif"]
+        montserrat : ['Montserrat', "sans-serif"],
+        poppin : [ 'Poppins', "sans-serif"]
       }
     },
   },

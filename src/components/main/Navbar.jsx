@@ -3,7 +3,7 @@ import Logo from "../../image/Logo/trans-logo.png"
 
 export const Navbar = () => {
     return (
-        <header className="bg-white">
+        <header className="bg-white font-poppin">
             <div className="flex items-center h-16 max-w-screen-xl gap-8 px-4 mx-auto sm:px-6 lg:px-8">
                 <Link className="block" to="/">
                     <span className="sr-only">Home</span>
@@ -13,8 +13,8 @@ export const Navbar = () => {
                 <nav aria-label="Global" className="hidden md:block">
                     <ul className="flex items-center gap-6 text-sm">
                         <li>
-                            <Link to="/"
-                            className="font-semibold text-gray-500 transition text-md hover:text-gray-500/75"
+                            <Link to="/shops"
+                            className="font-semibold text-textColor transition text-md hover:text-gray-700/75"
                             >
                             {" "}
                             Shops{" "}
@@ -22,8 +22,8 @@ export const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                            className="font-semibold text-gray-500 transition text-md hover:text-gray-500/75"
-                            to="/"
+                            className="font-semibold text-textColor transition text-md hover:text-textColor/75"
+                            to="/cart"
                             >
                             {" "}
                             Carts{" "}
@@ -31,7 +31,7 @@ export const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                            className="font-semibold text-gray-500 transition text-md hover:text-gray-500/75"
+                            className="font-semibold text-textColor transition text-md hover:text-textColor/75"
                             to="/"
                             >
                             {" "}
@@ -40,7 +40,7 @@ export const Navbar = () => {
                         </li>
                         <li>
                             <a
-                            className="font-semibold text-gray-500 transition text-md hover:text-gray-500/75"
+                            className="font-semibold text-textColor transition text-md hover:text-textColor/75"
                             href="/"
                             >
                             {" "}
@@ -49,7 +49,7 @@ export const Navbar = () => {
                         </li>
                         <li>
                             <a
-                            className="font-semibold text-gray-500 transition text-md hover:text-gray-500/75"
+                            className="font-semibold text-textColor transition text-md hover:text-gray-500/75"
                             href="/"
                             >
                             {" "}
@@ -67,7 +67,7 @@ export const Navbar = () => {
                         Login
                     </Link>
                     <Link
-                        className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
+                        className="hidden rounded-md bg-white border border-primary px-5 py-2.5 text-sm font-medium text-textColor transition hover:bg-teal-600 hover:border-teal-600 hover:text-white sm:block"
                         to="/"
                     >
                         Register

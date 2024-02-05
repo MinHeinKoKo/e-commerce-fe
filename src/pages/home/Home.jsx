@@ -1,6 +1,10 @@
+import { Intro } from "./container/Intro"
+
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <Intro />
+    </div>
   )
 }
 
