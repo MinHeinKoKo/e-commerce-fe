@@ -15,7 +15,6 @@ const GuestLayout = () => {
 
   useEffect(()=> {
     dispatch(setMostSells(data?.data))
-    console.log(data?.data)
   }, [ms])
   
   return (

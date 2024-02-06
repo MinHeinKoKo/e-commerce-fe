@@ -26,12 +26,8 @@ const Product = ({data}) => {
                 className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
             />
             <div className="relative border border-gray-100 bg-white p-6">
-                <span className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium">
-                    {" "}
-                    New{" "}
-                </span>
-                <h3 className="mt-4 text-lg font-medium text-gray-900">Robot Toy</h3>
-                <p className="mt-1.5 text-sm text-gray-700">$14.99</p>
+                <h3 className="mt-2 text-lg font-medium text-gray-900">{data?.name}</h3>
+                <p className="mt-1.5 text-sm text-gray-700">$ {data?.price}</p>
                 <form className="mt-4">
                     <button className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
                         Add to Cart
