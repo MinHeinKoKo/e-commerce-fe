@@ -26,16 +26,29 @@ export const productSlice = createSlice({
             const item = state.carts.find((cart) => cart.id === add.id);
             if (!item) {
               state.carts.push(action.payload);
-              state.totalPrice += action.payload.discountPrice;
+              state.totalPrice += parseFloat(action.payload.discountPrice);
             } else {
               item.qty += 1;
-              state.totalPrice += item.discountPrice;
+              state.totalPrice += parseFloat(item.discountPrice);
+            }
+        },
+        removeOneQty: (state, action) => {
+            const itemId = action.payload;
+            console.log(itemId)
+            const item = state.carts.find((cart) => cart?.id === itemId);
+            if (item) {
+                if (item.qty > 1) {
+                    item.qty -= 1;
+                } else {
+                    state.carts = state.carts.filter((cart) => cart?.id !== itemId);
+                }
+                state.totalPrice -= parseFloat(item.discountPrice);
             }
         },
         removeFromCarts: (state, action) => {
             const itemId = action.payload;
             const re = state.carts.find((cart) => cart?.id === itemId);
-            const t = re.price * re.qty;
+            const t = parseFloat(re.discountPrice) * parseInt(re.qty);
             const item = state.carts.filter((cart) => cart?.id !== itemId);
             state.carts = item;
             state.totalPrice -= t;
@@ -43,5 +56,5 @@ export const productSlice = createSlice({
     }
 })
 
-export const { setCatgory , setProducts , addToCarts , setMostSells, removeFromCarts } = productSlice.actions
+export const { setCatgory , setProducts , addToCarts , setMostSells, removeFromCarts, removeOneQty } = productSlice.actions
 export default productSlice.reducer;

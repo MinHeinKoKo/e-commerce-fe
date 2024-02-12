@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom"
+import { useDispatch } from 'react-redux'
+import { addToCarts } from '../../store/features/product.js'
 
 const Product = ({data}) => {
+
+    const dispatch = useDispatch();
+
+    const handleAddToCart = (e) => {
+        e.preventDefault();
+        dispatch(addToCarts(data))
+    }
+
     return (
-        <Link to="/detail" className="group relative block overflow-hidden hover:shadow-sm hover:scale-105 transition-all duration-200">
+        <div className="group relative block overflow-hidden hover:shadow-sm hover:scale-105 transition-all duration-200">
             <button className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
                 <span className="sr-only">Wishlist</span>
                 <svg
@@ -29,12 +39,12 @@ const Product = ({data}) => {
                 <h3 className="mt-2 text-lg font-medium text-gray-900">{data?.name}</h3>
                 <p className="mt-1.5 text-sm text-gray-700">$ {data?.price}</p>
                 <form className="mt-4">
-                    <button className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
+                    <button onClick={handleAddToCart} className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
                         Add to Cart
                     </button>
                 </form>
             </div>
-        </Link>
+        </div>
 
     )
 }
