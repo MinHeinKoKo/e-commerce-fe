@@ -12,6 +12,7 @@ import Profile from "./pages/profile/Profile";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Cookies from "js-cookie"
 import { useSelector } from "react-redux";
+import { Edit } from './pages/profile/edit/Edit.jsx'
 
 const App = () => {
   const mode = useSelector(state => state.display.currentMode);
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="cart" element={<Cart />} />
           <Route path="detail/:id" element={<Detail />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="profile/edit/:id" element={<Edit /> } />
         </Route>
 
         <Route path="/dashboard" element={<AdminLayout />}>
