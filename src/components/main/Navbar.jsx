@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 export const Navbar = () => {
 
-    const { email, name } = useSelector(state => state.auth.user)
+    const user = useSelector(state => state.auth.user)
     const carts = useSelector(state => state.product.carts);
     const numberOfCarts = carts?.length;
     return (
@@ -67,7 +67,7 @@ export const Navbar = () => {
                 </nav>
                 <div className="flex items-center gap-4">
                     <div className="sm:flex sm:gap-4">
-                        {!email && !name ? (
+                        {!user ? (
                             <>
                                 <Link
                                     className="block rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white transition hover:bg-primary/70"
@@ -84,8 +84,8 @@ export const Navbar = () => {
                             </>
                         ): (
                             <Link to="/profile" className="">
-                                <h3>{name}</h3>
-                                <p className="text-sm text-gray-600">{email}</p>
+                                <h3>{user?.name}</h3>
+                                <p className="text-sm text-gray-600">{user?.email}</p>
                             </Link>
                         )}
                     </div>

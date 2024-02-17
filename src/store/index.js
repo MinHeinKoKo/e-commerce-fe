@@ -6,6 +6,7 @@ import { productApi } from "../services/productApi";
 import { categoryApi } from "../services/categoryApi";
 import { authApi } from "../services/AuthApi.js";
 import authSlice from './features/authSlice.js'
+import { orderApi } from '../services/orderApi.js'
 
 const themeFromCookies = Cookies.get("theme");
 const userFromCookies = Cookies.get("user") === undefined ? null : JSON.parse(Cookies.get("user"));
@@ -27,6 +28,7 @@ const store = configureStore({
     reducer: {
         [productApi.reducerPath]: productApi.reducer,
         [categoryApi.reducerPath]: categoryApi.reducer,
+        [orderApi.reducerPath] : orderApi.reducer,
         [authApi.reducerPath]: authApi.reducer,
         display: displaySlice,
         auth: authSlice,
@@ -34,7 +36,7 @@ const store = configureStore({
     },
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(authApi.middleware, productApi.middleware, categoryApi.middleware),
+        getDefaultMiddleware().concat(authApi.middleware, productApi.middleware, categoryApi.middleware , orderApi.middleware),
 });
 
 export default store;

@@ -30,11 +30,21 @@ const Product = ({data}) => {
                     />
                 </svg>
             </button>
-            <img
-                src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80"
-                alt=""
-                className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-            />
+            {
+                data?.image === null ? (
+                    <img
+                        src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80"
+                        alt=""
+                        className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+                    />
+                ): (
+                    <img
+                        src={`http://127.0.0.1:8000${data?.image}`}
+                        alt=""
+                        className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+                    />
+                )
+            }
             <div className="relative border border-gray-100 bg-white p-6">
                 <h3 className="mt-2 text-lg font-medium text-gray-900">{data?.name}</h3>
                 <p className="mt-1.5 text-sm text-gray-700">$ {data?.price}</p>
