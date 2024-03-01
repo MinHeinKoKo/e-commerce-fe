@@ -20,9 +20,7 @@ const Register = () => {
   const registerHandler = async (e) => {
     e.preventDefault();
     const user = { name, email, password, password_confirmation };
-    // console.log(user);
     const { data } = await register(user);
-    // console.log(isSuccess);
     if (!isSuccess) {
       dispatch(addUser({ user: data?.user, token: data?.token }));
       if (data?.success) {
